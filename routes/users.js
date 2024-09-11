@@ -20,4 +20,14 @@ router.get("/get-all", async (req, res) => {
   }
 });
 
+router.post("/add-user", async (req, res) => {
+  try {
+    const newUser = new User(req.body)
+    await newUser.save()
+    res.status(200).json("User added successfully")
+  } catch (e) {
+    res.status(404).json(e)
+  }
+})
+
 module.exports = router;
