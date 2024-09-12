@@ -14,6 +14,7 @@ const authRoute = require("./routes/auth.js");
 const userRoute = require("./routes/users.js");
 const TableRoutes = require('./routes/tables.js')
 const TokenRoutes = require('./routes/tokens.js');
+const qrcoderoute = require('./routes/qrcodeguests.js')
 
 
 dotenv.config();
@@ -44,6 +45,7 @@ app.use("/auth", authRoute);
 app.use("/users", userRoute);
 app.use("/tables", TableRoutes);
 app.use("/tokens", TokenRoutes);
+app.use('/qrcodeforguests', qrcoderoute)
 
 app.get('/test', (req, res) => {
   res.send('Test route is working!');
